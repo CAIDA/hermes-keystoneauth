@@ -173,7 +173,7 @@ class KeystoneAuth(object):
     def __init__(self, app, conf):
         self.app = app
         self.conf = conf
-        self.logger = swift_utils.get_logger(conf, log_route='keystoneauth')
+        self.logger = swift_utils.get_logger(conf, log_route='hermes_keystoneauth')
         self.reseller_prefixes, self.account_rules = \
             config_read_reseller_options(conf,
                                          dict(operator_roles=['admin',
