@@ -178,7 +178,8 @@ class KeystoneAuth(object):
             config_read_reseller_options(conf,
                                          dict(operator_roles=['admin',
                                                               'swiftoperator'],
-                                              service_roles=[]))
+                                              service_roles=[],
+                                              readonly_roles=[]))
         self.reseller_admin_role = conf.get('reseller_admin_role',
                                             'ResellerAdmin').lower()
         config_is_admin = conf.get('is_admin', "false").lower()
@@ -495,6 +496,17 @@ class KeystoneAuth(object):
                 self.logger.debug(log_msg, tenant_name, user_name,
                                   user_role)
                 return
+
+        # Check if this user has a read-only role:
+        # This check needs to come after the normal role check so that
+        # read-only users can have write capabilities added for
+        # specific containers
+        readonly_roles = self.account_rules[account_prefix]['readonly_roles']
+        have_readonly_role = set(readonly_roles).intersection(set(user_roles))
+        if have_readonly_role and req.method in {'GET', 'HEAD'}:
+            log_msg = 'user %s:%s allowed with read-only role: authorizing'
+            self.logger.debug(log_msg, tenant_name, user_name)
+            return
 
         return self.denied_response(req)
 
