@@ -32,6 +32,7 @@ readonly_roles = swiftro
 
 ```
 git clone git@github.com:caida/hermes-keystoneauth
+cd hermes-keystoneauth/
 python setup.py install
 ```
 
