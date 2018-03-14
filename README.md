@@ -1,4 +1,4 @@
-# hermes-keystoneauth
+# Hermes Keystone Auth Middleware
 
 Fork of the OpenStack Swift Keystone Auth middleware that adds a config option
 to specify read-only roles.
