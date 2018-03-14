@@ -1,5 +1,9 @@
 # Copyright 2012 OpenStack Foundation
 #
+# This code is forked from the standard Swift keystoneauth middleware
+# Modifications are
+#   Copyright 2018 The Regents of the University of California.
+#
 # Licensed under the Apache License, Version 2.0 (the "License"); you may
 # not use this file except in compliance with the License. You may obtain
 # a copy of the License at
