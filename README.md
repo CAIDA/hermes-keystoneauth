@@ -53,3 +53,9 @@ example:
 ```
 readonly_roles = swiftro
 ```
+
+## Changes introduced
+
+The code changes introduced in this fork are all found in a single commit:
+https://github.com/CAIDA/hermes-keystoneauth/commit/431fb9d6d447d71fd6bce181013753f7599bb5ce
+but if you want to be sure, download the original and run a diff ;)
